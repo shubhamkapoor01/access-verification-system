@@ -7,6 +7,8 @@ const path = require("path");
 const { Server } = require("socket.io");
 const { pipeline } = require("serialport");
 const SerialPort = require("serialport");
+const axios = require('axios');
+const cvtfjs = require('@microsoft/customvision-tfjs');
 
 app.use(cors());
 
@@ -29,6 +31,12 @@ const io = new Server(server, {
 });
 
 // eslint-disable-next-line no-unused-vars
+
+// const parsers = SerialPort.parsers;
+// const parser = new parsers.Readline({
+// 	delimiter: '\r\n'
+// });
+		
 var allowed = 0;
 
 app.get("/", (request, response) => {
@@ -36,10 +44,9 @@ app.get("/", (request, response) => {
 	response.write(JSON.stringify(allowed));
 })
 
-// const parsers = SerialPort.parsers;
-// const parser = new parsers.Readline({
-// 	delimiter: '\r\n'
-// });
+app.post("/", (request, response) => {
+	console.log("got post");
+})
 
 // const port = new SerialPort("/dev/cu.usbserial-A50285BI", {
 // 	baudRate: 9600,
@@ -67,11 +74,14 @@ io.on('connection', (socket) => {
 			// port.write("0");
 		}
 
-		// const payload = JSON.stringify(data);
-
-		// const request = http.request({}, () => {
-		// 	console.log("LED updated");
-		// })
+		axios.get('http://192.168.180.161/1600x1200.jpg', {responseType: 'arraybuffer'})
+			.then(response => {
+				const buffer = Buffer.from(response.data, 'binary').toString('base64')
+				console.log(buffer);
+			})
+			.catch(error => {
+				console.log(error);
+			})
 
 		socket.emit('recieved', {data: data, port: Port});
 	});
