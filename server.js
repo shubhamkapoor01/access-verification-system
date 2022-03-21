@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const app = express();
 const cors = require("cors");
 const Path = require("path");
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 const io = new Server(server, {
 	cors: {
