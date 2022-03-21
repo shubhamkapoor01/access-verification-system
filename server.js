@@ -71,13 +71,20 @@ io.on('connection', (socket) => {
 				.then((response) => {
 					console.log(response.data);
 				})
+				.catch((error) => {
+					console.log(error);
+				})
 			// port.write("1");
+			
 		} else if (data.status === 2) {
 			console.log("writing LOW...");
 
 			axios.get('http://192.168.180.70/isallowed/0')
 				.then((response) => {
 					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error);
 				})
 			// port.write("0");
 		}
