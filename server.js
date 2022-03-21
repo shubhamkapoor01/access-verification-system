@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const http = require("http");
+const https = require("https");
 const app = express();
 const cors = require("cors");
 const Path = require("path");
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 const io = new Server(server, {
 	cors: {
@@ -37,7 +37,7 @@ const io = new Server(server, {
 // const parser = new parsers.Readline({
 // 	delimiter: '\r\n'
 // });
-		
+
 
 app.get("/", (request, response) => {
 	response.writeHead(200, {"Content-Type": "text/html"});
