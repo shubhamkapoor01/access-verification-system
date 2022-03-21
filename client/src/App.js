@@ -5,7 +5,7 @@ import Redirect from './Redirect';
 import io from 'socket.io-client';
 
 const Port = process.env.PORT || 3001;
-const socket = io.connect('https://192.168.179.211:3001');
+const socket = io.connect();
 
 function App() {
 	return (
