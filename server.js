@@ -67,7 +67,7 @@ io.on('connection', (socket) => {
 		if (data.status === 1) {
 			console.log("writing HIGH...");
 
-			axios.get('https://fefc-14-139-226-226.ngrok.io/isallowed/1')
+			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/1')
 				.then((response) => {
 					console.log(response.data);
 				})
@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
 		} else if (data.status === 2) {
 			console.log("writing LOW...");
 
-			axios.get('https://fefc-14-139-226-226.ngrok.io/isallowed/0')
+			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/0')
 				.then((response) => {
 					console.log(response.data);
 				})
