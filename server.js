@@ -67,25 +67,25 @@ io.on('connection', (socket) => {
 		if (data.status === 1) {
 			console.log("writing HIGH...");
 
-			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/1')
-				.then((response) => {
-					console.log(response.data);
-				})
-				.catch((error) => {
-					console.log(error);
-				})
+// 			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/1')
+// 				.then((response) => {
+// 					console.log(response.data);
+// 				})
+// 				.catch((error) => {
+// 					console.log(error);
+// 				})
 			// port.write("1");
 			
 		} else if (data.status === 2) {
 			console.log("writing LOW...");
 
-			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/0')
-				.then((response) => {
-					console.log(response.data);
-				})
-				.catch((error) => {
-					console.log(error);
-				})
+// 			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/0')
+// 				.then((response) => {
+// 					console.log(response.data);
+// 				})
+// 				.catch((error) => {
+// 					console.log(error);
+// 				})
 			// port.write("0");
 		}
 
