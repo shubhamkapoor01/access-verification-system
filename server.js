@@ -48,6 +48,12 @@ app.post("/", (request, response) => {
 	console.log("got post");
 })
 
+app.get("/hasmask/0", (request, response) => {
+// 	socket.emit("no mask");
+	console.log("recieved no mask from middleman");
+	response.write("recieved no mask from middleman");
+})
+
 // const port = new SerialPort("/dev/cu.usbserial-A50285BI", {
 // 	baudRate: 9600,
 // 	dataBits: 8,
@@ -63,12 +69,6 @@ app.post("/", (request, response) => {
 // }, 3000);
 
 io.on('connection', (socket) => {
-	app.get("/hasmask/0", (request, response) => {
-		socket.emit("no mask");
-		console.log("recieved no mask from middleman");
-		response.write("recieved no mask from middleman");
-	})
-	
 	socket.on('result', (data) => {
 		if (data.status === 1) {
 			console.log("writing HIGH...");
