@@ -48,6 +48,10 @@ app.post("/", (request, response) => {
 	console.log("got post");
 })
 
+app.get("/hasmask/0", (request, response) => {
+	socket.emit("no mask");
+	response.write("recieved no mask from middleman");
+})
 // const port = new SerialPort("/dev/cu.usbserial-A50285BI", {
 // 	baudRate: 9600,
 // 	dataBits: 8,
