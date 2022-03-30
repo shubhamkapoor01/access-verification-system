@@ -69,30 +69,30 @@ app.get("/hasmask/0", (request, response) => {
 
 io.on('connection', (socket) => {
 	socket.on('result', (data) => {
-// 		if (data.status === 1) {
-// 			console.log("writing HIGH...");
+		if (data.status === 1) {
+			console.log("writing HIGH...");
 
-// 			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/1')
-// 				.then((response) => {
-// 					console.log(response.data);
-// 				})
-// 				.catch((error) => {
-// 					console.log(error);
-// 				})
-// 			// port.write("1");
+			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/1')
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+			// port.write("1");
 			
-// 		} else if (data.status === 2) {
-// 			console.log("writing LOW...");
+		} else if (data.status === 2) {
+			console.log("writing LOW...");
 
-// 			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/0')
-// 				.then((response) => {
-// 					console.log(response.data);
-// 				})
-// 				.catch((error) => {
-// 					console.log(error);
-// 				})
-// 			// port.write("0");
-// 		}
+			axios.get('https://middleman-broker-server.herokuapp.com/isallowed/0')
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+			// port.write("0");
+		}
 
 		// const path = Path.resolve(__dirname, 'files', 'image.jpg');
 		// const pathModel = Path.resolve('files', 'image.jpg');
