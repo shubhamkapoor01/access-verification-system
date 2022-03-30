@@ -51,6 +51,10 @@ function Result(props) {
     props.socket.on('recieved', (payload) => {
       console.log('recieved ' + payload.data + ' from ' + payload.port);
     })
+
+    props.socket.on('no mask', (payload) => {
+      window.alert("PLEASE WEAR A MASK :)");
+    })
   }, [props.socket])
 
   return (
