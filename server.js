@@ -77,7 +77,7 @@ io.on('connection', (socket) => {
 					console.log(response.data);
 				})
 				.catch((error) => {
-					console.log(error);
+// 					console.log(error);
 				})
 			// port.write("1");
 			
@@ -89,7 +89,7 @@ io.on('connection', (socket) => {
 					console.log(response.data);
 				})
 				.catch((error) => {
-					console.log(error);
+// 					console.log(error);
 				})
 			// port.write("0");
 		}
