@@ -41,6 +41,7 @@ const io = new Server(server, {
 app.get("/hasmask/0", (request, response) => {
 // 	socket.emit("no mask");
 	console.log("recieved no mask from middleman");
+	response.writeHead(200, {"Content-Type": "text/html"});
 	response.write("recieved no mask from middleman");
 })
 
